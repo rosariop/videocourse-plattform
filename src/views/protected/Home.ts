@@ -19,18 +19,21 @@ export class Home extends LitElement {
         `
     }
 
-    authenticatedDummy = false;
+    // eslint-disable-next-line class-methods-use-this
+    private isAuthorized(){
+      return true;
+    }
 
     public onBeforeEnter(
         location: RouterLocation,
         commands: PreventAndRedirectCommands
       ): Promise<unknown> | RedirectResult | undefined {
-        if (this.authenticatedDummy) {
-          console.log('OnBeforeEnter');
+        if (!this.isAuthorized()) {
+          console.log('Guarded!');
     
           return new Promise(resolve => {
             setTimeout(() => {
-              resolve(commands.redirect('/home'));
+              resolve(commands.redirect('/'));
             }, 2000);
           });
         }
