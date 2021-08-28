@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { property } from 'lit/decorators.js';
 
-const logo = new URL('../../assets/open-wc-logo.svg', import.meta.url).href;
+const logo = new URL('../../../assets/open-wc-logo.svg', import.meta.url).href;
 
 export class VideoCourses extends LitElement {
   @property({ type: String }) title = 'My app';
