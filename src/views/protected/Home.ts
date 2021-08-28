@@ -21,7 +21,7 @@ export class Home extends LitElement {
 
     // eslint-disable-next-line class-methods-use-this
     private isAuthorized(){
-      return true;
+      return false;
     }
 
     public onBeforeEnter(
@@ -30,11 +30,8 @@ export class Home extends LitElement {
       ): Promise<unknown> | RedirectResult | undefined {
         if (!this.isAuthorized()) {
           console.log('Guarded!');
-    
-          return new Promise(resolve => {
-            setTimeout(() => {
+          return new Promise((resolve) => {
               resolve(commands.redirect('/'));
-            }, 2000);
           });
         }
         return undefined;
