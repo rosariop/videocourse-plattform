@@ -1,6 +1,6 @@
 export class RequestHelper {
 
-    static async post(url: String, data: Object): Promise<any> {
+    static async post(url: String, data: Object): Promise<Response> {
         const response = await fetch(`${url}`, {
           method: 'POST',
           mode: 'cors',
