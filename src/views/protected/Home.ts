@@ -4,6 +4,7 @@ import {
     RedirectResult,
     RouterLocation,
   } from '@vaadin/router'
+import { Auth } from "../../scripts/auth/auth.js";
 
 @customElement("vid-home")
 export class Home extends LitElement {
@@ -19,9 +20,8 @@ export class Home extends LitElement {
         `
     }
 
-    // eslint-disable-next-line class-methods-use-this
     private isAuthorized(){
-      return false;
+      return Auth.isTokenValid("TODO Here comes the token saved in the local storage");
     }
 
     public onBeforeEnter(
