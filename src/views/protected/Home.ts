@@ -29,7 +29,6 @@ export class Home extends LitElement {
         commands: PreventAndRedirectCommands
       ): Promise<unknown> | RedirectResult | undefined {
         if (!this.isAuthorized()) {
-          console.log('Guarded!');
           return new Promise((resolve) => {
               resolve(commands.redirect('/'));
           });
