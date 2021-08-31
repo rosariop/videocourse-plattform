@@ -1,10 +1,15 @@
 import { LitElement, html, css } from 'lit';
 import { property } from 'lit/decorators.js';
+import { Auth } from '../scripts/auth/auth';
 
 const logo = new URL('../../../assets/open-wc-logo.svg', import.meta.url).href;
 
 export class VideoCourses extends LitElement {
   @property({ type: String }) title = 'My app';
+
+  @property({ type: String }) email = '';
+
+  @property({ type: String }) password = '';
 
   static styles = css`
     :host {
@@ -67,6 +72,30 @@ export class VideoCourses extends LitElement {
         🚽 Made with love by
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/open-wc">open-wc</a>.
       </p>
+      
+      <div>
+        <input id="user-name" type="email" @change="${this.updateEmail}" placeholder="Your username is your email address!" required>
+        <input id="password" type="password" @change="${this.updatePassword}" placeholder="Your password belongs here!"
+          required>
+      </div>
+      <button @click=${() =>{this.register()}}>REGISTER</button>
     `;
+  }
+
+  // 
+
+  updateEmail(e: { target: HTMLInputElement }): void {
+    this.email = e.target.value
+  }
+
+  updatePassword(e: { target: HTMLInputElement }): void {
+    this.password = e.target.value
+  }
+
+  register(): void {
+    console.warn('wir sind drin!')
+
+   const auth: Auth = new Auth();
+    auth.createUserWithEmailAndPassword(this.email, this.password);
   }
 }

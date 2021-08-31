@@ -1,15 +1,28 @@
-import { RequestHelper } from "../utilities/RequestHelper.js";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { FirebaseError } from "@firebase/util";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export class Auth {
-    static async isTokenValid(data: String): Promise<boolean> {
-        const postBody = {
-            // Todo: PostBody for validation endpoint
-            "postbody": data
-        }
-        const response = await RequestHelper.post("http://google.com",postBody);
-        if(response.status >= 200 && response.status < 300 ){
-            return true;
-        }
-        return false;
-      }
+    private auth = getAuth();
+
+    public createUserWithEmailAndPassword(email: string, password: string): void {
+        createUserWithEmailAndPassword(this.auth, email, password)
+        .then((userCredential) => {
+            const { user: gottenUser } = userCredential;
+            console.log(gottenUser);
+        })
+        .catch((error: Error) => {
+            const authError = error as FirebaseError;
+            const {code: errorCode} = authError;
+            const {message: errorMessage} = authError;
+            
+
+            if(errorMessage === 'auth/weak-password'){
+                // eslint-disable-next-line no-alert
+                alert('TODO: Weak password from i18n');
+            }
+
+            return errorCode;
+        })
+    }
 }
