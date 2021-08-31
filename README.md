@@ -7,8 +7,8 @@ requires node 10 & npm 6 or higher
 ## Table Of Content
 
 1. TLDR / Scripts
-2. Tooling
-3. Goals
+2. Goals
+3. Tooling
 
 ## Scripts
 
@@ -18,13 +18,18 @@ requires node 10 & npm 6 or higher
 - `test` runs your test suite with Web Test Runner
 - `lint` runs the linter for your project
 
+## Goals
+
+This project is a 'learning' project for me understanding TypeScript
+and LitElements / JavaScript WebComponents while creating the UI of a video course platform.
+
 ## Tooling
 
 This project is using OpenWebcomponents / LitHtml as a frontend-framework.
 Styling is done by plain CSS due to the reduced complexity of components styling.
 The backend technology has to be determined later on.
 
-### Additional Tools used:
+### Additional Tools used
 
 - Google FirebaseAuth for authenticating user
 - Vaadin router for routing
