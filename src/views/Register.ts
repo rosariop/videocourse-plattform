@@ -9,17 +9,30 @@ export class Register extends LitElement {
     @property({ type: String }) password = '';
 
     static styles = css`
+    .mainWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .inputWrapper{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input{
+        margin: 5px
+    }
     /* Css comes here */
 `;
 
     render() {
         return html`
     <!-- Html goes here -->
-    <main>
+    <main class="mainWrapper">
         <h1>Register</h1>
-        <div>
-        <input id="user-name" type="email" @change="${this.updateEmail}" placeholder="Your username is your email address!" required>
-        <input id="password" type="password" @change="${this.updatePassword}" placeholder="Your password belongs here!"
+        <div class="inputWrapper">
+        <input class="input" id="user-name" type="email" @change="${this.updateEmail}" placeholder="Your username is your email address!" required>
+        <input class="input" id="password" type="password" @change="${this.updatePassword}" placeholder="Your password belongs here!"
           required>
       </div>
       <button @click=${() =>{this.register()}}>REGISTER</button>
