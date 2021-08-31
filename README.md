@@ -26,5 +26,6 @@ The backend technology has to be determined later on.
 
 ### Additional Tools used:
 
-- Supabase for authenticating user
+- Google FirebaseAuth for authenticating user
 - Vaadin router for routing
+- backend technology to be determined (java / golang)?
