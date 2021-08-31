@@ -21,10 +21,6 @@ export class Home extends LitElement {
         `
   }
 
-  private isAuthorized() {
-    return true;
-  }
-
   public onBeforeEnter(
     location: RouterLocation,
     commands: PreventAndRedirectCommands
