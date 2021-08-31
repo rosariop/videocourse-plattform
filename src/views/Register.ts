@@ -1,8 +1,8 @@
-import { Router } from "@vaadin/router";
-import { css, html, LitElement, property } from "lit-element";
+import { css, customElement, html, LitElement, property } from "lit-element";
 import { Auth } from "../scripts/auth/auth.js";
 
-export class VideoCourses extends LitElement {
+@customElement("vid-register")
+export class Register extends LitElement {
 
     @property({ type: String }) email = '';
 
@@ -29,13 +29,13 @@ export class VideoCourses extends LitElement {
         return html`
     <!-- Html goes here -->
     <main class="mainWrapper">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <div class="inputWrapper">
         <input class="input" id="user-name" type="email" @change="${this.updateEmail}" placeholder="Your username is your email address!" required>
         <input class="input" id="password" type="password" @change="${this.updatePassword}" placeholder="Your password belongs here!"
           required>
       </div>
-      <button @click=${() =>{this.login()}}>Login</button>
+      <button @click=${() =>{this.register()}}>REGISTER</button>
     </main>
     `
     }
@@ -48,9 +48,10 @@ export class VideoCourses extends LitElement {
         this.password = e.target.value
       }
     
-      async login(): Promise<void> {
+      register(): void {
+        console.warn('wir sind drin!')
+    
        const auth: Auth = new Auth();
-        auth.signInWithEmailAndPassword(this.email, this.password)
-        .then(() => Router.go('/home'));
+        auth.createUserWithEmailAndPassword(this.email, this.password);
       }
 }

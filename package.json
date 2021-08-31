@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@vaadin/router": "^1.7.4",
+    "firebase": "^9.0.0",
     "lit": "^2.0.0-rc.3",
     "lit-element": "^2.5.1"
   },
@@ -57,6 +58,7 @@
       "@typescript-eslint"
     ],
     "rules": {
+      "class-methods-use-this": "off",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": [
         "error"
