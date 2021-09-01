@@ -6,6 +6,7 @@ import {
   RouterLocation,
 } from '@vaadin/router'
 import { getAuth } from "@firebase/auth";
+import { Auth } from "../../scripts/auth/auth.js";
 
 @customElement("vid-home")
 export class Home extends LitElement {
@@ -18,6 +19,7 @@ export class Home extends LitElement {
     return html`
         <!-- Html goes here -->
         <h1>Vaadin works</h1>
+        <button @click=${() =>{Auth.logout()}}>logout</button>
         `
   }
 

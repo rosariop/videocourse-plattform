@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FirebaseError } from "@firebase/util";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { Router } from "@vaadin/router";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export class Auth {
     private auth = getAuth();
@@ -9,7 +10,7 @@ export class Auth {
         createUserWithEmailAndPassword(this.auth, email, password)
             .then((userCredential) => {
                 const { user: gottenUser } = userCredential;
-                console.log(gottenUser);
+                return gottenUser;
             })
             .catch((error: Error) => {
                 const authError = error as FirebaseError;
@@ -27,12 +28,10 @@ export class Auth {
     }
 
     public async signInWithEmailAndPassword(email: string, password: string): Promise<void> {
-        // eslint-disable-next-line no-debugger
-        debugger;
         await signInWithEmailAndPassword(this.auth, email, password)
             .then((userCredential) => {
                 const { user: gottenUser } = userCredential;
-                console.log(gottenUser);
+                return gottenUser;
             })
             .catch((error: Error) => {
                 const authError = error as FirebaseError;
@@ -40,5 +39,11 @@ export class Auth {
 
                 return errorCode;
             })
+    }
+
+    public static async logout(): Promise<void> {
+        const auth = getAuth();
+        await signOut(auth)
+        .then(() => Router.go("/"));
     }
 }
