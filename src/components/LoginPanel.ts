@@ -83,10 +83,10 @@ export class LoginPanel extends LitElement {
                     <h1 class="h1">Videocourses</h1>
                 </div>
                 <div class="itemcontainer">
-                    <input id="email" type="email" class="inputfield" placeholder="E-Mail Address here..." />
+                    <input id="email" type="email" class="inputfield" @click="${this.updateEmail}" placeholder="E-Mail Address here..." />
                 </div>
                 <div class="itemcontainer">
-                    <input id="password" type="password" class="inputfield" placeholder="Password here..." />
+                    <input id="password" type="password" class="inputfield" @click="${this.updatePassword}" placeholder="Password here..." />
                 </div>
                 <div class="itemcontainer">
                     <button @click=${()=> { this.login() }}>Login</button>
