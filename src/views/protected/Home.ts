@@ -20,7 +20,7 @@ export class Home extends LitElement {
         <!-- Html goes here -->
         <h1>Vaadin works</h1>
         <button @click=${() =>{Auth.logout()}}>logout</button>
-        `
+        `;
   }
 
   public onBeforeEnter(

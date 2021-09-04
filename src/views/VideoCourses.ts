@@ -1,56 +1,29 @@
-import { Router } from "@vaadin/router";
-import { css, html, LitElement, property } from "lit-element";
-import { Auth } from "../scripts/auth/auth.js";
+import { css, html, LitElement } from "lit-element";
+import { LoginPanel } from "../components/LoginPanel.js";
 
 export class VideoCourses extends LitElement {
 
-    @property({ type: String }) email = '';
-
-    @property({ type: String }) password = '';
-
     static styles = css`
-    .mainWrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .inputWrapper{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .input{
-        margin: 5px
+    .loginpanel{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        max-width: 800px;
+        
     }
     /* Css comes here */
-`;
+    `;
+
+    private loginpanel = new LoginPanel();
 
     render() {
         return html`
-    <!-- Html goes here -->
-    <main class="mainWrapper">
-        <h1>Login</h1>
-        <div class="inputWrapper">
-        <input class="input" id="user-name" type="email" @change="${this.updateEmail}" placeholder="Your username is your email address!" required>
-        <input class="input" id="password" type="password" @change="${this.updatePassword}" placeholder="Your password belongs here!"
-          required>
-      </div>
-      <button @click=${() =>{this.login()}}>Login</button>
-    </main>
+        <div class="loginpanel">
+            ${this.loginpanel}
+        </div>
     `
     }
 
-    updateEmail(e: { target: HTMLInputElement }): void {
-        this.email = e.target.value
-      }
-    
-      updatePassword(e: { target: HTMLInputElement }): void {
-        this.password = e.target.value
-      }
-    
-      async login(): Promise<void> {
-       const auth: Auth = new Auth();
-        auth.signInWithEmailAndPassword(this.email, this.password)
-        .then(() => Router.go('/home'));
-      }
 }
