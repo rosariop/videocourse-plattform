@@ -68,6 +68,24 @@ export class LoginPanel extends LitElement {
     .inputfield:not(:placeholder-shown) {
         background: #121212;
     }
+
+    .loginbutton{
+        width: 12rem;
+        height: 4rem;
+        border-radius: 80px;
+        border: 0;
+        background: #133962;
+        color: white;
+        font-family: 'Roboto';
+        font-size: 1rem;
+        box-shadow: 4px 4px 4px 0px #000000;
+        margin: 25px;
+    }
+    .loginbutton:hover{
+        cursor: pointer;
+        background: #194a7e;
+        border: 1.5px solid black;
+    }
 `;
 
     private logo = new URL('../../../assets/MagisterMedia-logo.svg', import.meta.url).href;
@@ -83,13 +101,15 @@ export class LoginPanel extends LitElement {
                     <h1 class="h1">Videocourses</h1>
                 </div>
                 <div class="itemcontainer">
-                    <input id="email" type="email" class="inputfield" @change="${this.updateEmail}" placeholder="E-Mail Address here..." />
+                    <input id="email" type="email" class="inputfield" @change="${this.updateEmail}"
+                        placeholder="E-Mail Address here..." />
                 </div>
                 <div class="itemcontainer">
-                    <input id="password" type="password" class="inputfield" @change="${this.updatePassword}" placeholder="Password here..." />
+                    <input id="password" type="password" class="inputfield" @change="${this.updatePassword}"
+                        placeholder="Password here..." />
                 </div>
                 <div class="itemcontainer">
-                    <button @click=${()=> { this.login() }}>Login</button>
+                    <button class="loginbutton" @click=${() => { this.login() }}>Login</button>
                 </div>
             </div>
         </div>`;
