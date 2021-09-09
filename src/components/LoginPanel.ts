@@ -1,6 +1,6 @@
 import { css, customElement, html, LitElement, property } from "lit-element";
 
-@customElement("vid-loginpanel")
+@customElement("vid-login-panel")
 export class LoginPanel extends LitElement {
 
     @property({ type: String }) email = '';
@@ -19,7 +19,7 @@ export class LoginPanel extends LitElement {
         font-weight: 100;
     }
 
-    .panelwrapper{
+    .panelWrapper{
         margin: auto auto;
         display: flex;
         flex-direction: column;
@@ -77,7 +77,7 @@ export class LoginPanel extends LitElement {
 
     render() {
         return html`
-        <div class="panelwrapper">
+        <div class="panelWrapper">
             <div class="panel">
                 <div class="itemcontainer logocontainer">
                     <img src="${this.logo}" alt="logo">
