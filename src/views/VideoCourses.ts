@@ -1,56 +1,32 @@
-import { Router } from "@vaadin/router";
-import { css, html, LitElement, property } from "lit-element";
-import { Auth } from "../scripts/auth/auth.js";
+import { html, property } from "lit-element";
+import "../components/LoginPanel.js";
+import "../components/LoginPanelButton.js"
+import { PanelBaseView } from "./PanelBaseView.js";
 
-export class VideoCourses extends LitElement {
+export class VideoCourses extends PanelBaseView {
 
     @property({ type: String }) email = '';
 
     @property({ type: String }) password = '';
-
-    static styles = css`
-    .mainWrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .inputWrapper{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .input{
-        margin: 5px
-    }
-    /* Css comes here */
-`;
+    
+    @property({ type: String }) passwordRetype = '';
 
     render() {
         return html`
-    <!-- Html goes here -->
-    <main class="mainWrapper">
-        <h1>Login</h1>
-        <div class="inputWrapper">
-        <input class="input" id="user-name" type="email" @change="${this.updateEmail}" placeholder="Your username is your email address!" required>
-        <input class="input" id="password" type="password" @change="${this.updatePassword}" placeholder="Your password belongs here!"
-          required>
-      </div>
-      <button @click=${() =>{this.login()}}>Login</button>
-    </main>
+        <div class="loginPanel">
+            <vid-login-panel .isLogin="${true}" @updated-email="${(e: any) => this.updateMail(e)}"
+                @updated-password="${(e: any) => this.updatePassword(e)}">
+                <vid-login-panel-button .email="${this.email}" .password="${this.password}" .loginButton="${true}"></vid-login-panel-button>
+            </vid-login-panel>
+        </div>
     `
     }
 
-    updateEmail(e: { target: HTMLInputElement }): void {
-        this.email = e.target.value
-      }
-    
-      updatePassword(e: { target: HTMLInputElement }): void {
-        this.password = e.target.value
-      }
-    
-      async login(): Promise<void> {
-       const auth: Auth = new Auth();
-        auth.signInWithEmailAndPassword(this.email, this.password)
-        .then(() => Router.go('/home'));
-      }
+    private updateMail(e: any) {
+        this.email = e.detail.email;
+    }
+
+    private updatePassword(e: any) {
+        this.password = e.detail.password;
+    }
 }
