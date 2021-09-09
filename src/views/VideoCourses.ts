@@ -13,11 +13,11 @@ export class VideoCourses extends PanelBaseView {
 
     render() {
         return html`
-        <div class="loginpanel">
-            <vid-loginpanel .isLogin="${true}" @updated-email="${(e: any) => this.updateMail(e)}"
+        <div class="loginPanel">
+            <vid-login-panel .isLogin="${true}" @updated-email="${(e: any) => this.updateMail(e)}"
                 @updated-password="${(e: any) => this.updatePassword(e)}">
                 <vid-login-panel-button .email="${this.email}" .password="${this.password}" .loginButton="${true}"></vid-login-panel-button>
-            </vid-loginpanel>
+            </vid-login-panel>
         </div>
     `
     }

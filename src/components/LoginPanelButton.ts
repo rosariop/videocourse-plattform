@@ -14,7 +14,7 @@ export class LoginPanelButton extends LitElement {
     @property({ type: String }) passwordRetype = '';
 
     static styles = css`
-    .loginbutton{
+    .loginButton{
         width: 12rem;
         height: 4rem;
         border-radius: 80px;
@@ -26,7 +26,7 @@ export class LoginPanelButton extends LitElement {
         box-shadow: 4px 4px 4px 0px #000000;
         margin: 25px;
     }
-    .loginbutton:hover{
+    .loginButton:hover{
         cursor: pointer;
         background: #194a7e;
         border: 1.5px solid black;
@@ -35,7 +35,7 @@ export class LoginPanelButton extends LitElement {
 
     render(){
         return html`
-            <button class="loginbutton" @click=${() => { 
+            <button class="loginButton" @click=${() => { 
                 if(this.loginButton){
                     this.login();
                 } else{

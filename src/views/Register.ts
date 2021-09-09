@@ -14,13 +14,13 @@ export class Register extends PanelBaseView {
 
     render() {
         return html`
-        <div class="loginpanel">
-            <vid-loginpanel @updated-email="${(e: any) => this.updateMail(e)}"
+        <div class="loginPanel">
+            <vid-login-panel @updated-email="${(e: any) => this.updateMail(e)}"
                 @updated-password="${(e: any) => this.updatePassword(e)}"
                 @updated-password-retype="${(e: any) => this.updateRetype(e)}">
                 <vid-login-panel-button .email="${this.email}" .password="${this.password}" .passwordRetype="${this.passwordRetype}" .loginButton="${false}"
                 @passwords-not-matching="${() => {this.showError = true}}"></vid-login-panel-button>
-            </vid-loginpanel>
+            </vid-login-panel>
             ${this.showError ? html`<p style="color: red">Password does not match retype!</p>` : ``}
         </div>
     `
@@ -33,7 +33,7 @@ export class Register extends PanelBaseView {
     private updatePassword(e: any) {
         this.password = e.detail.password;
     }
-    
+
     private updateRetype(e: any) {
         this.passwordRetype = e.detail.passwordRetype;
     }

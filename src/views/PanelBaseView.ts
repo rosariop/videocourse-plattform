@@ -2,7 +2,7 @@ import { css, LitElement } from "lit-element";
 
 export class PanelBaseView extends LitElement{
     static styles = css`
-    .loginpanel{
+    .loginPanel{
         position: absolute;
         top: 50%;
         left: 50%;
@@ -12,7 +12,7 @@ export class PanelBaseView extends LitElement{
         
     }
     
-    .loginbutton{
+    .loginButton{
         width: 12rem;
         height: 4rem;
         border-radius: 80px;
@@ -24,7 +24,7 @@ export class PanelBaseView extends LitElement{
         box-shadow: 4px 4px 4px 0px #000000;
         margin: 25px;
     }
-    .loginbutton:hover{
+    .loginButton:hover{
         cursor: pointer;
         background: #194a7e;
         border: 1.5px solid black;
