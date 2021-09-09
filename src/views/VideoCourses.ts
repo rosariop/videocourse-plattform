@@ -1,29 +1,32 @@
-import { css, html, LitElement } from "lit-element";
-import { LoginPanel } from "../components/LoginPanel.js";
+import { html, property } from "lit-element";
+import "../components/LoginPanel.js";
+import "../components/LoginPanelButton.js"
+import { PanelBaseView } from "./PanelBaseView.js";
 
-export class VideoCourses extends LitElement {
+export class VideoCourses extends PanelBaseView {
 
-    static styles = css`
-    .loginpanel{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 75%;
-        max-width: 800px;
-        
-    }
-    /* Css comes here */
-    `;
+    @property({ type: String }) email = '';
 
-    private loginpanel = new LoginPanel();
+    @property({ type: String }) password = '';
+    
+    @property({ type: String }) passwordRetype = '';
 
     render() {
         return html`
         <div class="loginpanel">
-            ${this.loginpanel}
+            <vid-loginpanel .isLogin="${true}" @updated-email="${(e: any) => this.updateMail(e)}"
+                @updated-password="${(e: any) => this.updatePassword(e)}">
+                <vid-login-panel-button .email="${this.email}" .password="${this.password}" .loginButton="${true}"></vid-login-panel-button>
+            </vid-loginpanel>
         </div>
     `
     }
 
+    private updateMail(e: any) {
+        this.email = e.detail.email;
+    }
+
+    private updatePassword(e: any) {
+        this.password = e.detail.password;
+    }
 }

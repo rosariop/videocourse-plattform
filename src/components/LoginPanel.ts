@@ -1,6 +1,4 @@
-import { Router } from "@vaadin/router";
 import { css, customElement, html, LitElement, property } from "lit-element";
-import { Auth } from "../scripts/auth/auth.js";
 
 @customElement("vid-loginpanel")
 export class LoginPanel extends LitElement {
@@ -8,6 +6,10 @@ export class LoginPanel extends LitElement {
     @property({ type: String }) email = '';
 
     @property({ type: String }) password = '';
+    
+    @property({ type: String }) passwordRetype = '';
+
+    @property({ type: Boolean }) isLogin = false;
 
     static styles = css`
     /* TODO: Style button */
@@ -69,23 +71,6 @@ export class LoginPanel extends LitElement {
         background: #121212;
     }
 
-    .loginbutton{
-        width: 12rem;
-        height: 4rem;
-        border-radius: 80px;
-        border: 0;
-        background: #133962;
-        color: white;
-        font-family: 'Roboto';
-        font-size: 1rem;
-        box-shadow: 4px 4px 4px 0px #000000;
-        margin: 25px;
-    }
-    .loginbutton:hover{
-        cursor: pointer;
-        background: #194a7e;
-        border: 1.5px solid black;
-    }
 `;
 
     private logo = new URL('../../../assets/MagisterMedia-logo.svg', import.meta.url).href;
@@ -98,7 +83,7 @@ export class LoginPanel extends LitElement {
                     <img src="${this.logo}" alt="logo">
                 </div>
                 <div class="itemcontainer">
-                    <h1 class="h1">Videocourses</h1>
+                    <h1 class="h1">${this.isLogin ? 'Login' : 'Register'}</h1>
                 </div>
                 <div class="itemcontainer">
                     <input id="email" type="email" class="inputfield" @change="${this.updateEmail}"
@@ -108,24 +93,44 @@ export class LoginPanel extends LitElement {
                     <input id="password" type="password" class="inputfield" @change="${this.updatePassword}"
                         placeholder="Password here..." />
                 </div>
+
+                ${!this.isLogin ? 
+                    html`<div class="itemcontainer">
+                            <input id="password" type="password" class="inputfield" @change="${this.updatePasswordRetype}"
+                                placeholder="Password here..." />
+                        </div>`:``}
+
                 <div class="itemcontainer">
-                    <button class="loginbutton" @click=${() => { this.login() }}>Login</button>
+                    <slot></slot>
                 </div>
             </div>
         </div>`;
     }
 
     updateEmail(e: { target: HTMLInputElement }): void {
-        this.email = e.target.value
+        const event = new CustomEvent('updated-email', {
+            detail: {
+                email: e.target.value
+            }
+        });
+        this.dispatchEvent(event);
     }
 
     updatePassword(e: { target: HTMLInputElement }): void {
-        this.password = e.target.value
+        const event = new CustomEvent('updated-password', {
+            detail: {
+                password: e.target.value
+            }
+        });
+        this.dispatchEvent(event);
     }
 
-    async login(): Promise<void> {
-        const auth: Auth = new Auth();
-        auth.signInWithEmailAndPassword(this.email, this.password)
-            .then(() => Router.go('/home'));
+    updatePasswordRetype(e: { target: HTMLInputElement }): void {
+        const event = new CustomEvent('updated-password-retype', {
+            detail: {
+                passwordRetype: e.target.value
+            }
+        });
+        this.dispatchEvent(event);
     }
 }
