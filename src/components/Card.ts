@@ -5,6 +5,8 @@ export class Card extends LitElement {
 
     @property({ type: String }) title = '';
 
+    @property({ type: Boolean }) purchased = false;
+
     @property({ type: Boolean }) sale = false;
 
     @property({ type: String }) imageLink = '';
@@ -114,17 +116,21 @@ export class Card extends LitElement {
 
     render() {
         return html`
+        <!-- TODO: remove width in prod -->
         <div style="width: 20%">
             <!-- dummy container -->
             <div class="card">
                 <figure class="card--image">
                     <img src="${this.courseImage}" alt="course-logo">
                 </figure>
+        
+                ${this.purchased ? `` : html`
                 <div class="card--banner ${this.sale ? `card--sale` : `card--price`}">
                     <p class="align-self-center card--pricing__text card--pricing--${this.sale ? `sale` : `price`}">
                         ${this.sale ? `SALE` : ``} ${this.price}€
                     </p>
-                </div>
+                </div>`
+            }
                 <div class="card--body">
                     <h3 class="card--title">
                         ${this.title}
@@ -134,9 +140,14 @@ export class Card extends LitElement {
                     </p>
                 </div>
                 <div class="button-container">
+                    ${this.purchased ? html`
+                    <button class="button" onclick="console.log('works')">
+                        watch now
+                    </button>` : html`
                     <button class="button" onclick="console.log('works')">
                         enroll now
                     </button>
+                    `}
                 </div>
             </div>
         </div>
