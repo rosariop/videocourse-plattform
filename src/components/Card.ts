@@ -27,6 +27,7 @@ export class Card extends LitElement {
         border-radius: 25px;
         display: flex;
         flex-direction: column;
+        background: rgb(23, 23, 23);
         box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.5); 
     }
     .card--image{
