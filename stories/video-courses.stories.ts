@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import '../src/video-courses.js';
+import '../src/views/video-courses.js';
 
 export default {
   title: 'VideoCourses',
@@ -20,8 +20,14 @@ interface ArgTypes {
   backgroundColor?: string;
 }
 
-const Template: Story<ArgTypes> = ({ title, backgroundColor = 'white' }: ArgTypes) => html`
-  <video-courses style="--video-courses-background-color: ${backgroundColor}" .title=${title}></video-courses>
+const Template: Story<ArgTypes> = ({
+  title,
+  backgroundColor = 'white',
+}: ArgTypes) => html`
+  <video-courses
+    style="--video-courses-background-color: ${backgroundColor}"
+    .title=${title}
+  ></video-courses>
 `;
 
 export const App = Template.bind({});
