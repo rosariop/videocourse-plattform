@@ -23,7 +23,7 @@ const Template: Story<ArgTypes> = () => html`
   <vid-navigation></vid-navigation>
 `;
 
-export const App = Template.bind({});
-App.args = {
+export const Navigation = Template.bind({});
+Navigation.args = {
   
 };

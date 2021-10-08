@@ -60,7 +60,7 @@ export class Navigation extends LitElement {
         return html`
             <div class="flex-row justify-content-between align-center">
                 <div>
-                    <h1>VideoCourses by Rosario</h1>
+                    <h1 class="link__active">VideoCourses by Rosario</h1>
                 </div>
                 <div>
                     <ul class="flex-row nav-items">

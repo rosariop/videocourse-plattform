@@ -18,6 +18,7 @@ export class Home extends LitElement {
 
   render() {
     return html`
+        <link rel="stylesheet" href="./assets/bootstrap-grid.css">
         <!-- Html goes here -->
         <div class="container">
           <vid-navigation></vid-navigation>
