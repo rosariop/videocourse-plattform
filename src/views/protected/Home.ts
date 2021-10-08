@@ -12,10 +12,6 @@ import "../../components/Navigation.js";
 @customElement("vid-home")
 export class Home extends LitElement {
 
-  static styles = css`
-        /* Css comes here */
-    `;
-
   render() {
     return html`
         <link rel="stylesheet" href="./assets/bootstrap-grid.css">
