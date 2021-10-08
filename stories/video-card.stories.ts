@@ -33,8 +33,8 @@ const Template: Story<ArgTypes> = ({ title, sale, price, purchased }: ArgTypes) 
   </vid-card>
 `;
 
-export const App = Template.bind({});
-App.args = {
+export const Card = Template.bind({});
+Card.args = {
   title: 'Lorem ipsum dolor',
   price: 420.69,
   sale: false,
