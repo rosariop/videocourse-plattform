@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { css, html, LitElement, customElement } from "lit-element";
+import { html, LitElement, customElement } from "lit-element";
 import {
   PreventAndRedirectCommands,
   RedirectResult,
