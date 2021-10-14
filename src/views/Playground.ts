@@ -12,7 +12,7 @@ export class Playground extends PanelBaseView {
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam  
         </vid-card>
 
-        <vid-slider></vid-slider>
+        <vid-slider .interval=${2000}></vid-slider>
         `
     }
 }

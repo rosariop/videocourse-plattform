@@ -1,18 +1,16 @@
 import { LitElement, html, css } from "lit-element";
-import { state, customElement } from "lit-element/lib/decorators";
+import { state, customElement, property } from "lit-element/lib/decorators";
 
 @customElement("vid-slider")
 export class Slider extends LitElement {
-
-    static styles= css`
-        .slider__height{
-            max-height: 300px;
-        }
-    `;
-
+    
+    // JAVASCRIPT 
     @state()
     private imageIndex = 0;
 
+    @property({type: Number}) interval = 0
+
+    
     private images = [
         "../../../assets/MagisterMedia-logo.svg", "../../../assets/open-wc-logo.svg", "../../../assets/MagisterMedia-logo2.svg"
     ]
@@ -31,6 +29,20 @@ export class Slider extends LitElement {
                 }, 1000);
     }
 
+    
+    firstUpdated(){
+        // TODO: slider speed interval set here
+        setInterval(() => this.setIndex(1), this.interval);
+    }
+
+    // Style
+    static styles= css`
+        .slider__height{
+            max-height: 300px;
+        }
+    `;
+
+    // HTML
     render() {
         return html`
             <div>
@@ -43,8 +55,4 @@ export class Slider extends LitElement {
         `;
     }
 
-    firstUpdated(){
-        setInterval(() => this.setIndex(1), 1000);
-    }
-    
 }
