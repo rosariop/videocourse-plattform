@@ -78,9 +78,6 @@ export class Home extends LitElement {
                 
                 }
           </div>
-        
-        
-          <button @click=${() => { Auth.logout() }}>logout</button>
         </div>
         `;
   }
