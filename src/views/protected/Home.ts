@@ -45,7 +45,7 @@ export class Home extends LitElement {
         <!-- Html goes here -->
         <div class="container">
           <vid-navigation></vid-navigation>
-          <vid-slider .interval=${2000}></vid-slider>
+          <vid-slider .interval=${10000}></vid-slider>
           <h3>Resume Watching: </h3>
           <div class="row">
             ${

@@ -3,10 +3,7 @@ import '../src/components/Navigation.js';
 
 // props here
 export default {
-  title: 'Navigation',
-  component: 'vid-navigation',
-  argTypes: {
-  },
+  title: 'Navigation'
 };
 
 interface Story<T> {
