@@ -1,6 +1,7 @@
 import { customElement, html } from "lit-element";
 import { PanelBaseView } from "./PanelBaseView.js";
 import "../components/Card.js";
+import "../components/Slider.js";
 
 
 @customElement("vid-playground")
