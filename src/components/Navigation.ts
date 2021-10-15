@@ -1,4 +1,5 @@
 import { css, customElement, html, LitElement, property } from "lit-element";
+import { Auth } from "../scripts/auth/auth.js";
 
 @customElement("vid-navigation")
 export class Navigation extends LitElement {
@@ -16,10 +17,24 @@ export class Navigation extends LitElement {
     private profilePicture = new URL('../../../assets/MagisterMedia-logo.svg', import.meta.url).href;
 
     static styles = css`
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        button{
+            font-family: 'Roboto', sans-serif;
+        }
 
         .flex-row{
             display: flex;
             flex-direction: row;
+        }
+
+        .logout-row{
+            align-items: center;
+            height: 25px;
+        }
+
+        .pointer{
+            cursor: pointer;
         }
 
         .justify-content-between {
@@ -47,6 +62,20 @@ export class Navigation extends LitElement {
             text-decoration: none; 
         }
 
+        .nav-item-logout {
+            background: 0;
+            color: rgb(168,168,168);
+            border: 0.25rem solid rgb(55, 0, 179);
+            border-radius: 25px;
+            margin: 0 1rem 0 0;
+            padding: 6px 10px 6px 10px;
+        }
+
+        .nav-item-logout:hover {
+            color: white;
+            border: 0.3rem solid rgb(70, 0, 230);
+        }
+
         .link__active {
             color: #FFFFFF;
         }
@@ -72,7 +101,8 @@ export class Navigation extends LitElement {
                         </li>
                     </ul>
                 </div>
-                <div class="flex-row justify-content-between">
+                <div class="flex-row justify-content-between logout-row">
+                    <button class="nav-item-logout pointer" @click=${() => { Auth.logout() }}>logout</button>
                     <p class="link__inactive">Your Name</p>
                     <figure class="profile-picture">
                         <img src="${this.profilePicture}" alt="course-logo">

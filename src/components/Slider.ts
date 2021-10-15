@@ -12,7 +12,7 @@ export class Slider extends LitElement {
 
     
     private images = [
-        "../../../assets/MagisterMedia-logo.svg", "../../../assets/banner.png", "../../../assets/MagisterMedia-logo2.svg"
+        "../../../assets/banner.png"
     ]
 
     private imageLink(i: number): string {
