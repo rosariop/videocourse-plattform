@@ -11,8 +11,6 @@ export class Playground extends PanelBaseView {
         <vid-card .sale=${false} .price=${19.99} .title=${`SpringBoot 101`}>
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam  
         </vid-card>
-
-        <vid-slider .interval=${2000}></vid-slider>
         `
     }
 }

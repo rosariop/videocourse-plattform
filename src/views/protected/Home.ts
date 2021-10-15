@@ -18,6 +18,7 @@ export class Home extends LitElement {
         <!-- Html goes here -->
         <div class="container">
           <vid-navigation></vid-navigation>
+          <vid-slider .interval=${2000}></vid-slider>
           <h1>Vaadin works</h1>
           <button @click=${()=> { Auth.logout() }}>logout</button>
         </div>

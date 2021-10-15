@@ -12,7 +12,7 @@ export class Slider extends LitElement {
 
     
     private images = [
-        "../../../assets/MagisterMedia-logo.svg", "../../../assets/open-wc-logo.svg", "../../../assets/MagisterMedia-logo2.svg"
+        "../../../assets/MagisterMedia-logo.svg", "../../../assets/banner.png", "../../../assets/MagisterMedia-logo2.svg"
     ]
 
     private imageLink(i: number): string {
@@ -37,8 +37,13 @@ export class Slider extends LitElement {
 
     // Style
     static styles= css`
-        .slider__height{
+        .slider__figure{
+            margin: 0;
+        }
+
+        .slider__size{
             max-height: 300px;
+            max-width: 100%;
         }
     `;
 
@@ -47,8 +52,8 @@ export class Slider extends LitElement {
         return html`
             <div>
                 <div>
-                    <figure>
-                        <img class="slider__height" src="${this.imageLink(this.imageIndex)}" alt="course-logo">
+                    <figure class="slider__figure">
+                        <img class="slider__size" src="${this.imageLink(this.imageIndex)}" alt="course-logo">
                     </figure>
                 </div>
             </div>
