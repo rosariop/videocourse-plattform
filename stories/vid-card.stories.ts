@@ -4,13 +4,6 @@ import '../src/components/Card.js';
 // props here
 export default {
   title: 'Card',
-  component: 'vid-card',
-  argTypes: {
-    title: 'lorem ipsum dolorem',
-    sale: false,
-    price: 99.99,
-    purchased: false
-  },
 };
 
 interface Story<T> {

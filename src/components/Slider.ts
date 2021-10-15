@@ -8,11 +8,13 @@ export class Slider extends LitElement {
     @state()
     private imageIndex = 0;
 
+    // Interval in ms
     @property({type: Number}) interval = 0
 
     
     private images = [
-        "../../../assets/MagisterMedia-logo.svg", "../../../assets/banner.png", "../../../assets/MagisterMedia-logo2.svg"
+        "../../../assets/banner.png",
+        "https://kinsta.com/wp-content/uploads/2018/07/social-media-image-sizes-1.png"
     ]
 
     private imageLink(i: number): string {

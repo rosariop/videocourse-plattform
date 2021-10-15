@@ -116,8 +116,6 @@ export class Card extends LitElement {
 
     render() {
         return html`
-        <!-- TODO: remove width in prod -->
-        <div style="width: 20%">
             <!-- dummy container -->
             <div class="card">
                 <figure class="card--image">
@@ -150,7 +148,6 @@ export class Card extends LitElement {
                     `}
                 </div>
             </div>
-        </div>
         `;
     }
 }
