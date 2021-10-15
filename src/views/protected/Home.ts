@@ -6,7 +6,6 @@ import {
   RouterLocation,
 } from '@vaadin/router'
 import { getAuth } from "@firebase/auth";
-import { Auth } from "../../scripts/auth/auth.js";
 import "../../components/Navigation.js";
 import "../../components/Card.js"
 
@@ -75,7 +74,6 @@ export class Home extends LitElement {
                       </vid-card>
                     </div>
                     `)
-                
                 }
           </div>
         </div>
