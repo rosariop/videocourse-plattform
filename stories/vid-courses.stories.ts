@@ -16,7 +16,7 @@ interface Story<T> {
 }
 
 interface ArgTypes {
-  title?: string;
+  title: string;
   backgroundColor?: string;
 }
 

@@ -13,10 +13,10 @@ interface Story<T> {
 }
 
 interface ArgTypes {
-  title?: string;
-  sale?: boolean;
-  price?: number;
-  purchased?: boolean;
+  title: string;
+  sale: boolean;
+  price: number;
+  purchased: boolean;
 }
 
 const Template: Story<ArgTypes> = ({ title, sale, price, purchased }: ArgTypes) => html`
