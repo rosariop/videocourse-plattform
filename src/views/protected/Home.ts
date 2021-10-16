@@ -8,6 +8,7 @@ import {
 import { getAuth } from "@firebase/auth";
 import "../../components/Navigation.js";
 import "../../components/Card.js"
+import "../../components/Footer.js"
 
 @customElement("vid-home")
 export class Home extends LitElement {
@@ -77,6 +78,9 @@ export class Home extends LitElement {
                 }
           </div>
         </div>
+
+        <!-- Footer -->
+        <vid-footer></vid-footer>
         `;
   }
 }
